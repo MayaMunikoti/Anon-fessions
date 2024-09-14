@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <title>Anon-fessions</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body class="noscroll">
+        <button onclick="window.location.href='INDEX.html'">Home</button>
+        <div class="toolbar">
+            <button onclick="storeConfession()">Publish</button>
+            <button onclick="document.getElementById('textarea').value = ''; document.getElementById('titlearea').value = '';">Clear</button>
+        </div>
+
+        <div class="container">
+            <img src="cat gif.gif" class="cat-img">
+            <div class="title"><textarea id="titlearea" placeholder="Title" maxlength ="20"></textarea></div>
+            <div class="maintxt"><textarea id="textarea" placeholder="Start venting...(300 characters)" maxlength ="300"></textarea></div>
+            <script>
+                function storeConfession() {
+                    var title = document.getElementById('titlearea').value;
+                    var post = document.getElementById('textarea').value;
+                    
+                    var titlearr = JSON.parse(localStorage.getItem('userTitles')) || [];
+                    var confessionarr = JSON.parse(localStorage.getItem('userPosts')) || [];
+
+                    titlearr.push(title);
+                    confessionarr.push(post);
+
+                    localStorage.setItem('userTitles', JSON.stringify(titlearr));
+                    localStorage.setItem('userPosts', JSON.stringify(confessionarr));
+
+                    document.getElementById('titlearea').value = '';
+                    document.getElementById('textarea').value = '';
+                }
+            </script>
+        </div>
+    </body>
+</html>

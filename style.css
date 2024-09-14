@@ -1,0 +1,137 @@
+@font-face {
+    font-family: 'rainyhearts';
+    src: url(rainyhearts.ttf); 
+}
+@font-face {
+    font-family: 'earlyg';
+    src: url(gbb__.ttf);
+}
+@keyframes fadein{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+body{
+    font-family: 'rainyhearts', sans-serif;
+    background-color: #10063d;
+    background-image: url('pixelnight.png');
+    background-size: cover;
+    background-position: center;
+}
+h1{
+    font-size: 80px;
+    margin-bottom: 10px;
+    color: #ffd5e7
+}
+h2{
+    font-size: 38px;
+    margin-top: 10px;
+    color: #ffd5e7
+}
+h3{
+    
+    text-align: center;
+}
+.titletext{
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+button{
+    background-color: #10063d;
+    color: #ffffff;
+    font-size: 17px;
+    border-radius: 100px;
+    font-family:'rainyhearts', 'Arial Narrow', Arial, sans-serif
+}
+
+.maintxt textarea{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -45%);
+    width: 75%;
+    height: 65%;
+    resize: none;
+    font-size: 25px;
+}
+.title textarea{
+    position: relative;
+    z-index: 1;
+    border-radius: 10px;
+    font-size: 20px;
+    left: 25%;
+    transform: translate(-50%, 580%);
+    width: 25%;
+    height: 3%;
+    resize: none;
+    overflow: hidden;
+}
+.cat-img {
+    z-index: 1;
+    position: absolute;
+    top: 7%;
+    right: 14%;
+    transform: scaleX(-1);
+    width: 15%;
+}
+.container{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.toolbar{
+    position: absolute;
+    z-index: 10;
+    top:17%;
+    left:13%;
+    scale: 120%
+}
+.noscroll{
+    overflow: hidden;
+}
+.grid-item {
+    font-family: 'earlyg', Arial, Helvetica, sans-serif;
+    position: relative;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    border-radius: 20px;
+    border: 2px solid #ffffff;
+    padding: 5px;
+    color: #ffd5e7;
+    display: flex; /* Adjust to fit content */
+    flex-direction: column; /* Ensure height adjusts based on content */
+    animation: fadein 0.5s ease-in forwards;
+}
+
+#msg {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    grid-template-rows: auto; /* Allow rows to adjust based on content */
+    grid-gap: 50px;
+    grid-auto-flow: dense;
+    margin-top: 20px;
+}
+
+.dltbtn {
+    z-index: 1;
+    position: absolute;
+    top: 105%;
+    left: 85%;
+    transform: scale(1);
+}
+.confesscontent{
+    font-family: 'rainyhearts', Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    margin-top: 0;
+}
+.titlecontent{
+    font-family: 'rainyhearts', Arial, Helvetica, sans-serif;
+    font-size: 60px;
+    margin-bottom: 15px;
+}

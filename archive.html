@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <button onclick="window.location.href='INDEX.html'">Home</button>
+        <div class="grid-container" id="msg"></div>
+        <script>
+            window.onload = function() {
+                displayPost();
+            }
+
+            function displayPost() {
+
+                var titlearr = JSON.parse(localStorage.getItem('userTitles')) || [];
+                var confessionarr = JSON.parse(localStorage.getItem('userPosts')) || [];
+
+                var msgDiv = document.getElementById('msg');
+                msgDiv.innerHTML = '';
+
+                titlearr.forEach(function(title, index) {
+                    var gridItem = document.createElement('div');
+                    gridItem.classList.add('grid-item');
+
+                    var titleElement = document.createElement('h2');
+                    titleElement.textContent = title;
+                    titleElement.classList.add('titlecontent');
+
+                    var postElement = document.createElement('p')
+                    postElement.textContent = confessionarr[index];
+                    postElement.classList.add('confesscontent');
+
+                    var deleteButton = document.createElement('img');
+                    deleteButton.src = 'trashimggray.svg';
+                    deleteButton.style.cursor = 'pointer';
+                    deleteButton.classList.add('dltbtn');
+
+                    deleteButton.onclick = function(){
+                        var titlearr = JSON.parse(localStorage.getItem('userTitles')) || [];
+                        var confessionarr = JSON.parse(localStorage.getItem('userPosts')) || [];
+
+                        titlearr.splice(index,1);
+                        confessionarr.splice(index,1);
+
+                        localStorage.setItem('userTitles', JSON.stringify(titlearr));
+                        localStorage.setItem('userPosts', JSON.stringify(confessionarr));
+                        displayPost();
+                    }
+
+                    gridItem.appendChild(titleElement);
+                    gridItem.appendChild(postElement);
+                    gridItem.appendChild(deleteButton);
+                    msgDiv.appendChild(gridItem);
+                });
+            }
+        </script>
+    </body>
+</html>
